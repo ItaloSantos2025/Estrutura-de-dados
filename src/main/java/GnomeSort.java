@@ -12,13 +12,12 @@ Para ordenar uma coleção de itens. É uma alternativa simples ao Insertion Sor
 educacionais devido à sua lógica intuitiva.
 
 Vantagens:
-
 Simples de implementar: A lógica é bastante direta, usando apenas um loop e algumas condições.
 Adaptativo: Assim como o Insertion Sort, ele se comporta bem em listas quase ordenadas.
 Estável: Mantém a ordem relativa de elementos com chaves iguais.
 In-place: Não requer memória adicional significativa.
-Desvantagens:
 
+Desvantagens:
 Ineficiente para listas grandes: A complexidade de tempo no pior caso e caso médio é O(n²), tornando-o impraticável
 para grandes volumes de dados.
 Muitas comparações e trocas: Pode ser menos eficiente que outros algoritmos O(n²) como o Bubble Sort em termos de
