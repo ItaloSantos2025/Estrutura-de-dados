@@ -1,31 +1,31 @@
 /*
 Lista Encadeada (Singly Linked List)
 O que é? Uma lista encadeada (ou lista ligada) é uma estrutura de dados linear e dinâmica onde os elementos não são
-armazenados em posições de memória contíguas, como acontece em arrays. Em vez disso, cada elemento, chamado de "nó"
+armazenados em posições de memória contíguas, como acontece em arrays. Em vez disso, cada elemento, chamado, de "nó"
 (node), contém duas partes:
 O dado (ou valor) que ele armazena.
 Um ponteiro (ou referência) para o próximo nó na sequência. O primeiro nó é chamado de "cabeça" (head) e o último nó
 aponta para null, indicando o fim da lista.
 
-Para que serve? Serve para armazenar uma coleção de elementos de forma ordenada (sequencialmente), permitindo inserções
+Para que serve? Serve, para armazenar uma coleção de elementos de forma ordenada (sequencialmente), permitindo inserções
 e remoções eficientes, especialmente no início da lista, sem a necessidade de realocar toda a estrutura como em um
 array. É útil quando o tamanho da coleção não é conhecido de antemão ou varia muito durante a execução.
 
 Vantagens:
 Tamanho Dinâmico: A lista pode crescer ou diminuir conforme necessário durante a execução, alocando memória apenas
 para os nós que realmente existem.
-Inserção/Remoção Eficiente no Início: Adicionar ou remover um elemento no início da lista é uma operação de tempo
+Inserção/Remoção Eficiente no Início: Adicionar ou remover um elemento no início da lista é uma operação de t hempo
 constante (O(1)), pois snvolve a atualização de alguns ponteiros.
 Uso de Memória Flexível: Não há desperdício de memória com espaços não utilizados, como pode ocorrer em arrays com
 capacidade pré-alocada.
 
 Desvantagens:
-Acesso Aleatório Lento: Para acessar um elemento em uma posição específica (por exemplo, o k-ésimo elemento), é
-necessário percorrer a lista desde a cabeça até esse elemento. Isso resulta em um tempo de acesso linear (O(n)) no
+Acesso Aleatório Lento: Para acessar um elemento em, uma posição específica (por exemplo, o k-ésimo elemento), é
+necessário percorrer a lista desde a cabeça até esse elemento. Isso resulta em, um tempo de acesso linear (O(n)) no
 pior caso.
 Memória Adicional para Ponteiros: Cada nó requer espaço extra para armazenar o ponteiro para o próximo nó, o que pode
 ser um overhead se os dados armazenados forem pequenos.
-Percorrer para Trás é Ineficiente/Impossível:  Em uma lista simplesmente encadeada, não é possível navegar para o nó
+Percorrer para Trás é Ineficiente/Impossível: Em, uma lista simplesmente encadeada, não é possível navegar para o nó
 anterior diretamente a partir de um nó atual; seria necessário começar da cabeça novamente.
  */
 
@@ -91,13 +91,27 @@ public class ListaSimplesmenteEncadeada {
      */
     public void adicionarNoInicio(int dado) {
         // 1. Cria um novo nó com o dado fornecido.
-        No novoNo = new No(dado);
+        No novoNo = new No(dado); // (dado = 5)
+        // Neste ponto:
+        // novoNo: [dado: 5, proximo: null]
+
         // 2. O 'proximo' do novo nó aponta para o que era a 'cabeca' anteriormente.
         novoNo.proximo = cabeca;
+        // Digamos que a lista era: cabeca -> [10 -> null]
+        // Então, 'cabeca' apontava para o nó com valor 10.
+        // Agora, novoNo.proximo também aponta para o nó com valor 10.
+        // novoNo: [dado: 5, proximo: (referência para o nó 10)]
+        // Lista ainda: cabeca -> [10 -> null]
+
         // 3. O novo nó se torna a nova 'cabeca' da lista.
         cabeca = novoNo;
+        // Agora, 'cabeca' naponta mais para o nó 10.
+        // 'cabeca' aponta para 'novoNo' (que tem o valor 5).
+        // Lista agora: cabeca -> [5 -> (referência para o nó 10)] -> [10 -> null]
+
         // 4. Incrementa o contador de tamanho da lista.
         tamanho++;
+        // Se o tamanho era 1, agora é 2.
     }
 
     /**
